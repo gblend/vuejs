@@ -10,7 +10,8 @@
       </section>
       <section class="flex flex-wrap my-2">
           <p style="width: 14.28%" class="text-center p-2 text-gray-600" v-for="num in startDay()" :key="num"></p>
-          <p style="width: 14.28%" class="text-center p-2 font-medium" v-for="num in daysInMonth()" :key="num">{{ num }}</p>
+          <p style="width: 14.28%" class="text-center p-2 font-medium" v-for="num in daysInMonth()" :key="num"
+          :class="currrentDateChecker(num)">{{ num }}</p>
       </section>
       <section class="flex justify-between my-4 px-8">
           <button class="px-2 border outline-none rounded bg-gradient-to-t from-blue-200 to-blue-500" @click="previousMonth">Prev</button>
@@ -54,6 +55,11 @@ methods: {
     currentMonthName() {
        return new Date(this.currentYear, this.currentMonth).toLocaleString('default', {month: 'long'});
     },
+    currrentDateChecker(num) {
+        let currentDate = new Date().toDateString();
+        let currentCalenderDate = new Date(this.currentYear, this.currentMonth, num).toDateString();
+        return currentCalenderDate === currentDate ? 'rounded border font-bold text-blue-200' : '';
+    }
 },
 }
 </script>
