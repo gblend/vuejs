@@ -2,18 +2,16 @@
 <div>
   <AppHeader/>
 <div class="w-full flex text-center font-extrabold">
-  <Calender />
+  <router-view></router-view>
 </div>
 </div>
 </template>
 
 <script>
 import AppHeader from './components/AppHeader';
-import Calender from './components/Calender';
 export default {
   components: {
 AppHeader,
-Calender,
   },
   name: 'App',
  
